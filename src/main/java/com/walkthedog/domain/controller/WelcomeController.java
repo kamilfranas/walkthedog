@@ -22,7 +22,7 @@ public class WelcomeController {
 
 	}
 
-	@RequestMapping(value = "/", params="petSitterList", method = RequestMethod.POST)
+	@RequestMapping(value = "/", params="petSittersList", method = RequestMethod.POST)
 	public String petSitterList() {
 		
 		return "redirect:/petsitters";

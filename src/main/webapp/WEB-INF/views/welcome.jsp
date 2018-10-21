@@ -20,7 +20,7 @@
 			<hr class="my-4">
 <form:form action="/walkthedog/" method="post">
 <input type="submit" class="btn btn-warning" name = "animalList" value="Animals" />
-<input type="submit" class="btn btn-primary" name = "petSitterlList" value="Pet Sitters" />
+<input type="submit" class="btn btn-primary" name = "petSittersList" value="Pet Sitters" />
 </form:form>
 
 

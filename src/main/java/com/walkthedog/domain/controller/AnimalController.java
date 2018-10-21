@@ -16,7 +16,6 @@ import com.walkthedog.domain.Animal;
 import com.walkthedog.service.AnimalServiceImpl;
 
 @Controller
-@ControllerAdvice
 public class AnimalController {
 	@Autowired
 	private AnimalServiceImpl animalServiceimpl;
