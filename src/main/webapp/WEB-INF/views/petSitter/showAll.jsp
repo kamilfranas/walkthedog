@@ -13,25 +13,21 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1>Pet Sitters</h1>
-	<table class="table table-striped table-dark">
-		<thead class="thead-dark">
-			<tr>
-				<th scope="col">Name</th>
-				<th scope="col">Second Name</th>
-				<th scope="col">Email</th>
-				<th scope="col">Phone Number</th>
-				<th scope="col">City</th>
-			</tr>
+	<h1>Pet Sitters:</h1>
+	<table>
+		<thead>
+			<th scope="col">Name</th>
+			<th scope="col">Second Name</th>
+			<th scope="col">City</th>
+			<th scope="col">Phone Number</th>
 		</thead>
 		<tbody>
-			<c:forEach items="${list}" var="petsitter">
-				<tr>
-					<td>${petsitter.name}</td>
-					<td>${petsitter.secondName}</td>
-					<td>${petsitter.email}</td>
-					<td>${petsitter.phoneNumber}</td>
-					<td>${petsitter.city}</td>
+			<c:forEach items="${list}" var="petSitter">
+				<tr> 
+					<td>${petSitter.name}</td>
+					<td>${petSitter.secondName}</td>
+					<td>${petSitter.city}</td>
+					<td>${petSitter.phoneNumber}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

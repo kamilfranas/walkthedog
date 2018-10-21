@@ -15,7 +15,7 @@ public class WelcomeController {
 		return "welcome";
 	}
 
-	@RequestMapping(value = "/" , params="animalList", method = RequestMethod.POST)
+	@RequestMapping(value = "/" , params="animalsList", method = RequestMethod.POST)
 	public String animalList() {
 		
 		return "redirect:/animals";

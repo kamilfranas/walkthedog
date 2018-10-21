@@ -29,7 +29,7 @@ public class AnimalController {
 	@RequestMapping("/animals")
 	public String animalList(Model model) {
 		model.addAttribute("animalList", animalServiceimpl.getAllAnimals());
-		return "animals";
+		return "animal/showAll";
 	}
 
 	// animalEdit.jsp
@@ -45,7 +45,7 @@ public class AnimalController {
 	public String animalInfo(Model model, @PathVariable int id) {
 
 		model.addAttribute("animal", animalServiceimpl.getAnimalById(id));
-		return "animalInfo";
+		return "animal/showAnimal";
 	}
 
 	// edit animal button
@@ -53,7 +53,7 @@ public class AnimalController {
 	public String animalEditGet(@ModelAttribute("Animal") Animal animal, Model model, @PathVariable int id) {
 		animal = animalServiceimpl.getAnimalById(id);
 		model.addAttribute("Animal", animal);
-		return "animalEditForm";
+		return "animal/editForm";
 	}
 
 	//confirm changes
@@ -63,13 +63,12 @@ public class AnimalController {
 		if (result.hasErrors()) {
 			//animal = animalServiceimpl.getAnimalById(id);
 			model.addAttribute("Animal", animal);
-			return "animalEditForm";
+			return "animal/editForm";
 
 		} else {
 			animalServiceimpl.editAnimal(animal);
 			return "redirect:/animals";
 		}
-
 	}
 
 	// remove animal button
@@ -88,7 +87,7 @@ public class AnimalController {
 	// add a new animal
 	@RequestMapping(value = "/animals/add", params = "addNewAnimal", method = RequestMethod.POST)
 	public String addNewAnimal() {
-		return "addAnimalForm";
+		return "animal/addForm";
 	}
 
 	// animalInfo.jsp
@@ -101,20 +100,18 @@ public class AnimalController {
 	// addAnimalForm.jsp
 	@RequestMapping(value = "/animals/add", method = RequestMethod.GET)
 	public String formularz() {
-		return "addAnimalForm";
+		return "animal/addForm";
 	}
 
 	@RequestMapping(value = "/animals/add", params = "submitNewAnimal", method = RequestMethod.POST)
 	public String submitNewAnimal(@ModelAttribute("Animal") @Valid Animal a, BindingResult result) {
 
 		if (result.hasErrors()) {
-			return "addAnimalForm";
+			return "animal/addForm";
 		} else {
 			animalServiceimpl.addAnimal(a);
-
 			return "redirect:/animals";
 		}
-
 	}
 
 }

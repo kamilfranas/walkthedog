@@ -14,27 +14,18 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
 	<form:form action="/walkthedog/animals/add" method="post"
 		modelAttribute="Animal">
 		<label>Name</label>
 		<form:input path="name" placeholder="Enter the name" />
 		<font color="red"><form:errors path="name" cssclass="error" /></font>
 		<br />
-
 		<label>Description</label>
 		<form:input path="description"
 			placeholder="Enter description of your pet" />
 		<font color="red"><form:errors path="description" cssclass="error" /></font>
 		<br />
-
 		<input type="submit" value="Add a new animal" name="submitNewAnimal" class="btn btn-success" />
-	
-	
 	</form:form>
-
-
-
-
 </body>
 </html>
