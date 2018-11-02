@@ -16,15 +16,11 @@
 	<div class="jumbotron">
 		<h1 class="display-4">Edit</h1>
 		<hr class="my-4">
-		<p>Enter new data and push "confirm" button to edit or "cancel"
-			button to cancel to back on list without setting changes</p>
 
 
-		<form:form action="/walkthedog/animals/id=${Animal.id}"
-			method="post" modelAttribute="Animal">
+		<form:form action="/walkthedog/animals/id=${Animal.id}" method="post"
+			modelAttribute="Animal">
 			<div class="form-group">
-				<form:label for="editId" path="id">Id ${Animal.id}</form:label>
-				<br />
 				<form:label for="editname" path="name">Name</form:label>
 				<font color="red"><form:errors path="name" cssclass="error"></form:errors></font>
 				<form:input type="text" class="form-control" id="editname"

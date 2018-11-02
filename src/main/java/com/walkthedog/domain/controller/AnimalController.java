@@ -1,7 +1,6 @@
 package com.walkthedog.domain.controller;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -61,7 +60,6 @@ public class AnimalController {
 	public String animalEditPost(@ModelAttribute("Animal") @Valid Animal animal, BindingResult result, Model model, @PathVariable int id) {
 		
 		if (result.hasErrors()) {
-			//animal = animalServiceimpl.getAnimalById(id);
 			model.addAttribute("Animal", animal);
 			return "animal/editForm";
 
@@ -88,6 +86,11 @@ public class AnimalController {
 	@RequestMapping(value = "/animals/add", params = "addNewAnimal", method = RequestMethod.POST)
 	public String addNewAnimal() {
 		return "animal/addForm";
+	}
+	
+	@RequestMapping(value = "/animals/add", params= "goBack", method = RequestMethod.POST) 
+	public String goBackToList() {
+		return "redirect:/animals";
 	}
 
 	// animalInfo.jsp

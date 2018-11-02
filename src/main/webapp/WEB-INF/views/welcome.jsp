@@ -10,26 +10,21 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
 	integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-	crossorigin="anonymous" >
+	crossorigin="anonymous">
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="jumbotron">
-			<h1 class="display-4">${greeting}</h1>
+			<h1 class="display-4 font-weight-bold">${greeting}</h1>
 			<p class="lead">${description}</p>
 			<hr class="my-4">
-<form:form action="/walkthedog/" method="post">
-<input type="submit" class="btn btn-warning" name = "animalsList" value="Animals" />
-<input type="submit" class="btn btn-primary" name = "petSittersList" value="Pet Sitters" />
-</form:form>
-
-
+			<form:form action="/walkthedog/" method="post">
+				<input type="submit" class="btn btn-warning" name="animalsList"
+					value="Animals" />
+				<input type="submit" class="btn btn-primary" name="petSittersList"
+					value="Pet Sitters" />
+			</form:form>
 		</div>
-
-
 	</div>
-
-
-
 </body>
 </html>

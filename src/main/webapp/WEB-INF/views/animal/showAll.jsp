@@ -13,28 +13,38 @@
 	crossorigin="anonymous">
 </head>
 <body>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4 font-weight-bold">Animals List</h1>
 
+			<form:form action="/walkthedog/" method="post">
+				<input type="submit" class="btn btn-secondary float-left" name="mainPage"
+					value="Welcome Page" >
+			</form:form>
 
-	<h1>Animals List:</h1>
+			<form:form action="/walkthedog/animals/add" method="post">
+				<input type="submit" class="btn btn-warning float-right" name="addNewAnimal"
+					value="Add a new animal" />
+			</form:form>
+
+		</div>
+	</div>
 
 	<table class="table table-striped table-dark">
 		<thead class="thead-dark">
 			<tr>
-				<th scope="col">ID</th>
 				<th scope="col">Name</th>
 				<th scope="col">Description</th>
 				<th scope="col">Actions</th>
 			</tr>
 		</thead>
 		<tbody>
-
 			<c:forEach items="${animalList}" var="animal">
 				<tr>
-					<th>${animal.id}</th>
 					<td>${animal.name}</td>
 					<td>${animal.description}</td>
-					<td><form:form
-							action="/walkthedog/animals/id=${animal.id}" method="post">
+					<td><form:form action="/walkthedog/animals/id=${animal.id}"
+							method="post" >
 							<input type="submit" class="btn btn-info" name="animalInfo"
 								value="See more" />
 							<input type="submit" class="btn btn-warning" name="animalEditGet"
@@ -44,19 +54,7 @@
 						</form:form></td>
 				</tr>
 			</c:forEach>
-
-
 		</tbody>
 	</table>
-	
-	<form:form action="/walkthedog/" method="post">
-  	<input type="submit" class="btn btn-secondary" name = "mainPage" value="Welcome Page">
-  	</form:form>
-  	
-  	<form:form action="/walkthedog/animals/add" method="post">
-  	<input type="submit" class="btn btn-warning" name= "addNewAnimal" value = "Add a new animal"/>
-</form:form>
-
-
 </body>
 </html>

@@ -13,9 +13,26 @@
 	crossorigin="anonymous">
 </head>
 <body>
-	<h1>Pet Sitters:</h1>
-	<table>
-		<thead>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4 font-weight-bold">Pet Sitters</h1>
+
+			<form:form action="/walkthedog/" method="post">
+				<input type="submit" class="btn btn-secondary float-left" name="mainPage"
+					value="Welcome Page" >
+			</form:form>
+
+			<form:form action="/walkthedog/petsitter/add" method="post">
+				<input type="submit" class="btn btn-warning float-right" name="addPetSitter"
+					value="Add a new pet sitter" />
+			</form:form>
+
+		</div>
+	</div>
+
+	
+	<table class="table table-striped table-dark">
+		<thead class="thead-dark">
 			<th scope="col">Name</th>
 			<th scope="col">Second Name</th>
 			<th scope="col">City</th>
@@ -23,11 +40,25 @@
 		</thead>
 		<tbody>
 			<c:forEach items="${list}" var="petSitter">
-				<tr> 
+				<tr>
 					<td>${petSitter.name}</td>
 					<td>${petSitter.secondName}</td>
 					<td>${petSitter.city}</td>
 					<td>${petSitter.phoneNumber}</td>
+					
+					<td><form:form action="/walkthedog/petsitter/id=${petSitter.id}"
+							method="post">
+							<input type="submit" class="btn btn-info" name="petSitterInfo"
+								value="See more" />
+							<input type="submit" class="btn btn-warning" name="editPetSitter"
+								value="Edit" />
+							<input type="submit" class="btn btn-danger" name="removePetSitter"
+								value="Remove" />
+						</form:form></td>
+
+				
+				
+
 				</tr>
 			</c:forEach>
 		</tbody>

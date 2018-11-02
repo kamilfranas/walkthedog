@@ -1,10 +1,14 @@
 package com.walkthedog.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -15,11 +19,17 @@ public class PetSitter {
 	private int id;
 	@Size(min = 2, max = 20, message="Name must be between 2 and 20")
 	private String name;
+	@Column(name="second_name")
 	@Size(min = 2, max = 20, message="Second name must be between 2 and 20")
 	private String secondName;
-	
+	@NotBlank(message="Email can not be empty")
+	@Email(message="Email must be valid")
 	private String email;
+	@Column(name="phone_number")
+	@NotBlank
+	@Pattern(regexp="(^[1-9]{7,12}$)", message="Phone number must be between 7 and 12 ")
 	private String phoneNumber;
+	@Size(min = 2, message = "City must have at least 2 characters")
 	private String city;
 	@Size(min = 20, max = 100, message="Description must be between 20 and 100")
 	private String description;
